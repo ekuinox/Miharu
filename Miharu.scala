@@ -31,19 +31,14 @@ class PlayerInteractEventListener extends Listener:
   @EventHandler
   def onPlayerInteract(e: PlayerInteractEvent): Unit =
     if e.getAction != Action.RIGHT_CLICK_BLOCK then return
-    if Option(e.getClickedBlock).map { b => b.getType } != Some(
-        Material.FARMLAND
-      )
-    then return
     if e.getPlayer.getInventory.getItemInMainHand.getType != Material.POTATO then
       return
     // HAND, OFF_HANDで2回発火してしまうのでHANDに絞る
     if Option(e.getHand) != Some(EquipmentSlot.HAND) then return
 
-    val block = Option(e.getClickedBlock)
-    block filter { b => b.getType == Material.FARMLAND } foreach { b =>
-      fillFarmLand(e.getPlayer, b)
-    }
+    Option(e.getClickedBlock) match
+      case Some(block) if block.getType == Material.FARMLAND => fillFarmLand(e.getPlayer, block)
+      case _ =>
 
 def fillFarmLand(player: Player, baseBlock: Block): Unit =
   // 繋がっている農地全てに適用させたいけど、まあ後で考える

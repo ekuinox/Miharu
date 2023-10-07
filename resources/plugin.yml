@@ -1,5 +1,5 @@
 name: Miharu
 version: 0.0.1
-main: dev.ekuinox.Miharu.Miharu
+main: dev.ekuinox.miharu.Miharu
 api-version: "1.20"
 description: "hogeeeee"

@@ -3,7 +3,7 @@
 //> using resourceDir ./resources
 //> using scala "3.3.0"
 
-package dev.ekuinox.Miharu
+package dev.ekuinox.miharu
 
 import org.bukkit.plugin.java.JavaPlugin
 import org.bukkit.event.EventHandler

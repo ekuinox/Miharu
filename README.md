@@ -7,7 +7,7 @@ Spigot plugin to assist for farming.
 ## Features
 
 - [x] batch planting (potato, carrot, wheat, sweet berry, beetroot)
-- [ ] replant
+- [x] replant
 
 ## Build
 

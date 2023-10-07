@@ -12,6 +12,8 @@ import org.bukkit.block.Block
 import org.bukkit.block.BlockFace
 import org.bukkit.Material
 
+import dev.ekuinox.miharu.Miharu
+
 class Filler(log: Logger) extends Listener:
   log.info("Filler enabled")
 
@@ -23,23 +25,13 @@ class Filler(log: Logger) extends Listener:
 
     val player = event.getPlayer
     val seed = player.getItemInHand.getType
-    val planted = Filler.items.get(seed)
+    val planted = Miharu.items.get(seed)
 
     planted.zip(Option(event.getClickedBlock)) match
       case Some((planted, block)) if block.getType == Material.FARMLAND =>
         event.setCancelled(true)
         fillFarmLand(player.getInventory, block, seed, planted)
       case _ =>
-
-object Filler:
-  // 種とその植えた後のブロックの対応
-  val items = Map(
-    Material.POTATO -> Material.POTATOES,
-    Material.CARROT -> Material.CARROTS,
-    Material.SWEET_BERRIES -> Material.SWEET_BERRY_BUSH,
-    Material.WHEAT_SEEDS -> Material.WHEAT,
-    Material.BEETROOT_SEEDS -> Material.BEETROOTS
-  )
 
 /** 隣接している耕地全てに種を植える
   * @param inventory

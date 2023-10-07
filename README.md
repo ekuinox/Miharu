@@ -6,4 +6,4 @@
 
 - [scala-cli](https://scala-cli.virtuslab.org) v1.0.4
 
-`scala-cli --power package --assembly . --main-class dev.ekuinox.miharu.Miharu --force`
+`scala-cli --power package --assembly . --main-class dev.ekuinox.dev.miharu.Miharu --force -o Miharu.jar`

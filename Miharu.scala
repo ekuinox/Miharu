@@ -10,10 +10,6 @@ import dev.ekuinox.miharu.filler.Filler
 
 class Miharu extends JavaPlugin:
   override def onEnable(): Unit =
-    getServer()
-      .getPluginManager()
-      .registerEvents(Filler(), this)
-    getLogger().info("Miharu enabled")
-
-  override def onDisable(): Unit =
-    getLogger().info("Miharu disabled")
+    val pluginManager = getServer.getPluginManager
+    if getConfig.getBoolean("filler", false) then
+      pluginManager.registerEvents(Filler(getLogger), this)

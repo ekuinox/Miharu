@@ -1,5 +1,7 @@
 package dev.ekuinox.miharu.filler
 
+import java.util.logging.Logger
+
 import org.bukkit.event.EventHandler
 import org.bukkit.event.block.Action
 import org.bukkit.event.Listener
@@ -10,7 +12,9 @@ import org.bukkit.block.Block
 import org.bukkit.block.BlockFace
 import org.bukkit.Material
 
-class Filler extends Listener:
+class Filler(log: Logger) extends Listener:
+  log.info("Filler enabled")
+
   @EventHandler
   def handlePlayerInteract(event: PlayerInteractEvent): Unit =
     if event.getAction != Action.RIGHT_CLICK_BLOCK then return

@@ -12,6 +12,5 @@ Spigot plugin to assist for farming.
 ## Build
 
 - [scala-cli](https://scala-cli.virtuslab.org) v1.0.4
-- [cargo-make](https://github.com/sagiegurari/cargo-make)
 
-`cargo make build`
+Run `make` to build jar file.
